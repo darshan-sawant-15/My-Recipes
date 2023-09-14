@@ -1,0 +1,48 @@
+<div class="row p-4">
+  <div class="col-md-8 offset-md-2">
+    <div class="card p-4">
+      <h3 class="text-center fw-bold">
+        View Recipes <i class="bi bi-eye me-2"></i>
+      </h3>
+      <div class="table-responsive mt-4 mx-3" >
+        <div class="alert alert-warning text-center" *ngIf="recipes.length==0"> No Recipes Added Yet
+        </div>
+        <table class="table table-bordered text-center" *ngIf="recipes.length>0">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let recipe of recipes">
+              <td >{{ recipe.id }}</td>
+              <td>
+                <a
+                  [routerLink]="['/view-single-recipe', recipe.id]"
+                  class="h6 text-decoration-none"
+                  >{{ recipe.name }}</a
+                >
+              </td>
+              <td>
+                <div class="d-flex justify-content-evenly">
+                  <a class="btn btn-md btn-primary me-1" [routerLink]="['/update-recipe', recipe.id]">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <button
+                    class="btn btn-md btn-danger"
+                    (click)="deleteRecipe(recipe.id)"
+                  >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+</div>

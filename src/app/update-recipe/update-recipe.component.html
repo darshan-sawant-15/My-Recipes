@@ -1,0 +1,225 @@
+<div class="row p-4">
+  <div class="col-md-8 offset-md-2">
+    <div class="card p-3">
+      <h3 class="text-center fw-bold">
+        Update Recipe <i class="bi bi-pencil"></i>
+      </h3>
+      <div
+        *ngIf="showAlert"
+        class="alert alert-success d-flex align-items-center justify-content-center mt-3"
+        role="alert"
+      >
+        <i class="bi bi-check-circle me-2"></i>
+        <div>Recipe Updated</div>
+      </div>
+      <form [formGroup]="editRecipeForm" (ngSubmit)="updateRecipe()" class="mx-3">
+        <input
+          type="hidden"
+          formControlName="id"
+          name="id"
+          id="name"
+        />
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            formControlName="name"
+            [ngClass]="editRecipeForm.get('name')?.invalid ? 'is-invalid':''"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('name')?.touched &&
+              editRecipeForm.get('name')?.invalid &&
+              editRecipeForm.get('name')?.hasError('required')
+            "
+          >
+            Please add a name for your recipe
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('name')?.touched &&
+              editRecipeForm.get('name')?.invalid &&
+              editRecipeForm.get('name')?.hasError('maxlength')
+            "
+          >
+            Name should not exceed 100 characters
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('name')?.touched &&
+              editRecipeForm.get('name')?.invalid &&
+              editRecipeForm.get('name')?.hasError('minlength')
+            "
+          >
+            Name should be at least 5 characters long
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <textarea
+            class="form-control"
+            rows="5"
+            id="ingredients"
+            name="ingredients"
+            formControlName="ingredients"
+            [ngClass]="
+              editRecipeForm.get('ingredients')?.invalid ? 'is-invalid' : ''
+            "
+          ></textarea>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('ingredients')?.touched &&
+              editRecipeForm.get('ingredients')?.invalid &&
+              editRecipeForm.get('ingredients')?.hasError('required')
+            "
+          >
+            Please add ingredients for your recipe
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('ingredients')?.touched &&
+              editRecipeForm.get('ingredients')?.invalid &&
+              editRecipeForm.get('ingredients')?.hasError('maxlength')
+            "
+          >
+            Ingredients should not exceed 5000 characters
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('ingredients')?.touched &&
+              editRecipeForm.get('ingredients')?.invalid &&
+              editRecipeForm.get('ingredients')?.hasError('minlength')
+            "
+          >
+            Ingredients should be at least 5 characters long
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="instructions" class="form-label">Instructions</label>
+          <textarea
+            class="form-control"
+            id="instructions"
+            rows="10"
+            name="instructions"
+            formControlName="instructions"
+            [ngClass]="
+              editRecipeForm.get('instructions')?.invalid ? 'is-invalid' : ''
+            "
+          ></textarea>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('instructions')?.touched &&
+              editRecipeForm.get('instructions')?.invalid &&
+              editRecipeForm.get('instructions')?.hasError('required')
+            "
+          >
+            Please add instructions for your recipe
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('instructions')?.touched &&
+              editRecipeForm.get('instructions')?.invalid &&
+              editRecipeForm.get('instructions')?.hasError('minlength')
+            "
+          >
+            Instructions should be at least 5 characters long
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('instructions')?.touched &&
+              editRecipeForm.get('instructions')?.invalid &&
+              editRecipeForm.get('instructions')?.hasError('maxlength')
+            "
+          >
+            Instructions should not exceed 5000 characters
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="time" class="form-label">Cooking Time</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cookingTime"
+            name="time"
+            formControlName="time"
+            [ngClass]="editRecipeForm.get('time')?.invalid ? 'is-invalid' : ''"
+
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('time')?.touched &&
+              editRecipeForm.get('time')?.invalid &&
+              editRecipeForm.get('time')?.hasError('required')
+            "
+          >
+            Please add cooking time for your recipe
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('time')?.touched &&
+              editRecipeForm.get('time')?.invalid &&
+              editRecipeForm.get('time')?.hasError('maxlength')
+            "
+          >
+            Cooking time should not exceed 20 characters
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="servings" class="form-label">Servings</label>
+          <input
+            type="number"
+            class="form-control"
+            id="servings"
+            name="servings"
+            formControlName="servings"
+            [ngClass]="
+              editRecipeForm.get('servings')?.invalid ? 'is-invalid' : ''
+            "
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('servings')?.touched &&
+              editRecipeForm.get('servings')?.invalid &&
+              editRecipeForm.get('servings')?.hasError('required')
+            "
+          >
+            Please add how many servings this recipe provides
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              editRecipeForm.get('servings')?.touched &&
+              editRecipeForm.get('servings')?.invalid &&
+              editRecipeForm.get('servings')?.hasError('min')
+            "
+          >
+            Servings should be at least 1
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-main">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

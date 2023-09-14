@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #e1eedd!important;
+    overflow-x: hidden!important;
+}
+
+.btn-main{
+    background-color: #f6c453!important;
+    color: white!important;
+    border: 2px solid #000!important;
+}
+.btn-main:hover{
+    background-color: #f0a04b!important;
+    color: white!important;
+    border: 2px solid #000!important;
+}
