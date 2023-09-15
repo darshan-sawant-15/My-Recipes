@@ -1,8 +1,11 @@
-.navbar{
-    background-color: #f0a04b!important;
+.navbar {
+  background-color: #f0a04b !important;
 }
 
-.navbar-toggler{
-    color: #f6c453!important;
+body {
+  overflow-x: hidden !important;
 }
 
+.navbar-toggler {
+  color: #f6c453 !important;
+}
