@@ -1,78 +1,75 @@
 <div class="row p-4">
-    <div class="col-md-8 offset-md-2">
-      <div class="card p-3">
-        <h3 class="text-center fw-bold">
-          Recipe Details <img 
-          src="./assets/images/food.svg"
-          alt="Logo"
-          width="30"
-          height="28" class="mb-1"
+  <div class="col-md-8 offset-md-2">
+    <div class="card p-3">
+      <h3 class="text-center fw-bold">
+        Recipe Details
+        <img src="./assets/images/logo.svg" height="50" width="50" />
+      </h3>
+
+      <!-- Recipe Name (Read-only) -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          [value]="recipe.name"
+          readonly
         />
-        </h3>
-  
-        <!-- Recipe Name (Read-only) -->
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="name"
-            [value]="recipe.name"
-            readonly
-          />
-        </div>
-  
-        <!-- Ingredients (Read-only) -->
-        <div class="mb-3">
-          <label for="ingredients" class="form-label">Ingredients</label>
-          <textarea
-            class="form-control"
-            rows="5"
-            id="ingredients"
-            name="ingredients"
-            readonly
-          >{{recipe.ingredients}}</textarea>
-        </div>
-  
-        <!-- Instructions (Read-only) -->
-        <div class="mb-3">
-          <label for="instructions" class="form-label">Instructions</label>
-          <textarea
-            class="form-control"
-            id="instructions"
-            rows="10"
-            name="instructions"
-            readonly
-          >{{recipe.instructions}}</textarea>
-        </div>
-  
-        <!-- Cooking Time (Read-only) -->
-        <div class="mb-3">
-          <label for="time" class="form-label">Cooking Time</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cookingTime"
-            name="time"
-            [value]="recipe.time"
-            readonly
-          />
-        </div>
-  
-        <!-- Servings (Read-only) -->
-        <div class="mb-3">
-          <label for="servings" class="form-label">Servings</label>
-          <input
-            type="text"
-            class="form-control"
-            id="servings"
-            name="servings"
-            [value]="recipe.servings"
-            readonly
-          />
-        </div>
+      </div>
+
+      <!-- Ingredients (Read-only) -->
+      <div class="mb-3">
+        <label for="ingredients" class="form-label">Ingredients</label>
+        <textarea
+          class="form-control"
+          rows="5"
+          id="ingredients"
+          name="ingredients"
+          readonly
+          >{{ recipe.ingredients }}</textarea
+        >
+      </div>
+
+      <!-- Instructions (Read-only) -->
+      <div class="mb-3">
+        <label for="instructions" class="form-label">Instructions</label>
+        <textarea
+          class="form-control"
+          id="instructions"
+          rows="10"
+          name="instructions"
+          readonly
+          >{{ recipe.instructions }}</textarea
+        >
+      </div>
+
+      <!-- Cooking Time (Read-only) -->
+      <div class="mb-3">
+        <label for="time" class="form-label">Cooking Time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cookingTime"
+          name="time"
+          [value]="recipe.time"
+          readonly
+        />
+      </div>
+
+      <!-- Servings (Read-only) -->
+      <div class="mb-3">
+        <label for="servings" class="form-label">Servings</label>
+        <input
+          type="text"
+          class="form-control"
+          id="servings"
+          name="servings"
+          [value]="recipe.servings"
+          readonly
+        />
       </div>
     </div>
   </div>
-  
+</div>
