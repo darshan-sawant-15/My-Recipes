@@ -26,7 +26,7 @@ export class ServerService {
     if (this.recipes.length == 0) {
       recipe.id = 1;
     } else {
-      recipe.id = this.recipes[this.recipes.length-1].id + 1;
+      recipe.id = Number(this.recipes[this.recipes.length-1].id) + 1;
     }
     this.recipes.push(recipe);
     localStorage.setItem('recipes', JSON.stringify(this.recipes));

@@ -2,7 +2,8 @@
 .banner{
     background-image: url("../../assets/images/home-bg.jpg");
     background-size: cover;
-    height: 100vh;
+    height: 95vh;
+    width: 100%;
 }
 
 .card{

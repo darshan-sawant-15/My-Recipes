@@ -17,7 +17,8 @@
             id="name"
             name="name"
             formControlName="name"
-            [ngClass]="addRecipeForm.get('name')?.invalid ? 'is-invalid' : ''"
+            placeholder="Enter Recipe Name"
+            [ngClass]="addRecipeForm.get('name')?.invalid && addRecipeForm.get('name')?.touched  ? 'is-invalid' : ''"
           />
           <div
             class="invalid-feedback"
@@ -59,8 +60,9 @@
             id="ingredients"
             name="ingredients"
             formControlName="ingredients"
+            placeholder="Enter Ingredients"
             [ngClass]="
-              addRecipeForm.get('ingredients')?.invalid ? 'is-invalid' : ''
+              addRecipeForm.get('ingredients') ?.invalid  && addRecipeForm.get('ingredients')?.touched  ? 'is-invalid' : ''
             "
           ></textarea>
           <div
@@ -103,8 +105,9 @@
             rows="10"
             name="instructions"
             formControlName="instructions"
+            placeholder="Enter Recipe Instructions"
             [ngClass]="
-              addRecipeForm.get('instructions')?.invalid ? 'is-invalid' : ''
+              addRecipeForm.get('instructions')?.invalid  && addRecipeForm.get('instructions')?.touched ? 'is-invalid' : ''
             "
           ></textarea>
           <div
@@ -142,12 +145,14 @@
         <div class="mb-3">
           <label for="time" class="form-label">Cooking Time</label>
           <input
-            type="text"
+            type="time"
             class="form-control"
             id="cookingTime"
             name="time"
             formControlName="time"
-            [ngClass]="addRecipeForm.get('time')?.invalid ? 'is-invalid' : ''"
+            placeholder="Enter Cooking Time"
+            (input)="validateTime($event)"
+            [ngClass]="addRecipeForm.get('time')?.invalid && addRecipeForm.get('time')?.touched ? 'is-invalid' : ''"
           />
           <div
             class="invalid-feedback"
@@ -164,10 +169,10 @@
             *ngIf="
               addRecipeForm.get('time')?.touched &&
               addRecipeForm.get('time')?.invalid &&
-              addRecipeForm.get('time')?.hasError('maxlength')
+              addRecipeForm.get('time')?.hasError('invalidTime')
             "
           >
-            Cooking time should not exceed 20 characters
+            The cooking time you added is invalid
           </div>
         </div>
 
@@ -179,8 +184,9 @@
             id="servings"
             name="servings"
             formControlName="servings"
+            placeholder="Enter Serving Quantity"
             [ngClass]="
-              addRecipeForm.get('servings')?.invalid ? 'is-invalid' : ''
+              addRecipeForm.get('servings')?.invalid && addRecipeForm.get('servings')?.touched  ? 'is-invalid' : ''
             "
           />
           <div

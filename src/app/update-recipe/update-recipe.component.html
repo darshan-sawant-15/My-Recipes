@@ -27,7 +27,9 @@
             id="name"
             name="name"
             formControlName="name"
-            [ngClass]="editRecipeForm.get('name')?.invalid ? 'is-invalid':''"
+            placeholder="Enter Recipe Name"
+            [ngClass]="editRecipeForm.get('name')?.invalid && editRecipeForm.get('name')?.touched ? 'is-invalid':''"
+            
           />
           <div
             class="invalid-feedback"
@@ -69,9 +71,8 @@
             id="ingredients"
             name="ingredients"
             formControlName="ingredients"
-            [ngClass]="
-              editRecipeForm.get('ingredients')?.invalid ? 'is-invalid' : ''
-            "
+            placeholder="Enter Ingredients"
+            [ngClass]="editRecipeForm.get('ingredients')?.invalid && editRecipeForm.get('ingredients')?.touched ? 'is-invalid':''"
           ></textarea>
           <div
             class="invalid-feedback"
@@ -113,9 +114,8 @@
             rows="10"
             name="instructions"
             formControlName="instructions"
-            [ngClass]="
-              editRecipeForm.get('instructions')?.invalid ? 'is-invalid' : ''
-            "
+            placeholder="Enter Recipe Instructions"
+            [ngClass]="editRecipeForm.get('instructions')?.invalid && editRecipeForm.get('instructions')?.touched ? 'is-invalid':''"
           ></textarea>
           <div
             class="invalid-feedback"
@@ -152,12 +152,13 @@
         <div class="mb-3">
           <label for="time" class="form-label">Cooking Time</label>
           <input
-            type="text"
+            type="time"
             class="form-control"
             id="cookingTime"
             name="time"
             formControlName="time"
-            [ngClass]="editRecipeForm.get('time')?.invalid ? 'is-invalid' : ''"
+            placeholder="Enter Cooking Time"
+            [ngClass]="editRecipeForm.get('time')?.invalid && editRecipeForm.get('time')?.touched ? 'is-invalid':''"
 
           />
           <div
@@ -165,10 +166,10 @@
             *ngIf="
               editRecipeForm.get('time')?.touched &&
               editRecipeForm.get('time')?.invalid &&
-              editRecipeForm.get('time')?.hasError('required')
+              editRecipeForm.get('time')?.hasError('invalidTime')
             "
           >
-            Please add cooking time for your recipe
+            The cooking time you added is invalid
           </div>
           <div
             class="invalid-feedback"
@@ -190,9 +191,8 @@
             id="servings"
             name="servings"
             formControlName="servings"
-            [ngClass]="
-              editRecipeForm.get('servings')?.invalid ? 'is-invalid' : ''
-            "
+            placeholder="Enter Serving Quantity"
+            [ngClass]="editRecipeForm.get('servings')?.invalid && editRecipeForm.get('servings')?.touched ? 'is-invalid':''"
           />
           <div
             class="invalid-feedback"

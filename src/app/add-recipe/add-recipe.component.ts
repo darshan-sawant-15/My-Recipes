@@ -44,4 +44,15 @@ export class AddRecipeComponent {
     this.showAlert = true;
   }
 
+  validateTime(event:Event){
+    const cookingTime = (event.target as HTMLInputElement).value;
+    const min = "00:00";
+    const max = "24:00";
+    if(cookingTime>max || cookingTime<min){
+      this.addRecipeForm.get('time')?.setErrors({'invalidTime':true});
+    }
+    else{
+      this.addRecipeForm.get('time')?.setErrors(null);
+    }
+  }
 }
